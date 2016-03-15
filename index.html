@@ -23,19 +23,16 @@
       //其实你可以直接给.videoFrame一个CSS:display:hide;的属性，因为你这样子的话，如果文件较大，加载慢了的话会把videoFrame先显示出来的。
       $(".videoButton").click(function(){
         let id = $(this).data("id");
-        $(this).after('<iframe height=154 width=305 src="http://demo.anyan.com/video/view?device_id='+videoTable[id]+'" ></iframe>')
+        if ($("#"+id).length) {
+          $("#"+id).remove();
+        }else {
+          $(this).after('<iframe id="'+id+'" height=154 width=305 src="http://demo.anyan.com/video/view?device_id='+videoTable[id]+'" ></iframe>');
+        }
       })
 		});
 
 	</script>
   <style>
-    .videoFrame{
-      display: none;
-    }
-    html{
-      height: 100%;
-      width: 100%;
-    }
   </style>
 </head>
 <body ontouchstart>
