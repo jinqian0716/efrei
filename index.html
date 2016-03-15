@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title></title>
+    <link rel="stylesheet" href="../style/weui.css"/>
+    <link rel="stylesheet" href="./example.css"/>
+	<script type="text/javascript" src="./jquery-1.8.0.js"></script>
+	<script type="text/javascript">
+    let videoTable = {
+      "v1": "Ub0000000542866896QB",
+      "v2": "Ub0000000536914147Ye",
+      "v3": "Ub000000FCFD01AD58eF",
+      "v4": "Ub0000000542866896QB",
+      "v5": "Ub0000000536914147Ye",
+    }
+
+
+		$(document).ready(function(){
+
+      //$(".videoFrame").hide();
+      //其实你可以直接给.videoFrame一个CSS:display:hide;的属性，因为你这样子的话，如果文件较大，加载慢了的话会把videoFrame先显示出来的。
+      $(".videoButton").click(function(){
+        let id = $(this).data("id");
+        if ($("#"+id).length) {
+          $("#"+id).remove();
+        }else {
+          $(this).after('<iframe id="'+id+'" height=154 width=305 src="http://demo.anyan.com/video/view?device_id='+videoTable[id]+'" ></iframe>');
+        }
+      })
+		});
+
+	</script>
+  <style>
+  </style>
+</head>
+<body ontouchstart>
+
+<div class="page">
+    <div class="hd">
+        <h1 class="page_title">采矿摄像</h1>
+    </div>
+    <div class="bd">
+
+
+
+        <div class="weui_cells_title">摄像列表
+          <div class="weui_cells weui_cells_access">
+
+            <button class="videoButton" data-id="v1">采矿位置1</button>
+            <button class="videoButton" data-id="v2">采矿位置2</button>
+            <button class="videoButton" data-id="v3">采矿位置3</button>
+            <button class="videoButton" data-id="v4">采矿位置4</button>
+            <button class="videoButton" data-id="v5">采矿位置5</button>
+  		    </div>
+        </div>
+    </div>
+
+
+    </div>
+</div>
+
+    <script src="./zepto.min.js"></script>
+    <script src="./example.js"></script>
+</body>
+</html>
